@@ -8,6 +8,22 @@ const App = () => {
   const [calc, setCalc] = useState("");
   const ops = ["/", "*", "-", "+", ".", "%"];
 
+  const createDigits = () => {
+    const digits = [];
+    for (let i = 1; i < 10; i++) {
+      digits.push(
+        <button
+          className="pad-item"
+          onClick={() => updateCalc(i.toString())}
+          key={i}
+        >
+          {i}
+        </button>
+      );
+    }
+    return digits;
+  };
+
   const updateCalc = (value) => {
     if (
       (ops.includes(value) && calc === "") ||
@@ -15,8 +31,10 @@ const App = () => {
     ) {
       return;
     }
-    if(value==='0' && calc.slice(0)==='0'){
-      return;
+    if( (value==='0'||'1'||'2'||'3'||'4'||'6'||'7'||'8'||'9') && (calc.slice(0)==='0') && (value!=='.') )
+    {
+      console.log('cant use octal')
+      return ;
     }
     setCalc(calc + value);
     document.querySelector('#input').classList.remove('result');
@@ -46,29 +64,14 @@ const App = () => {
     document.querySelector('#input').classList.remove('result');
   };
 
-  const createDigits = () => {
-    const digits = [];
-    for (let i = 1; i < 10; i++) {
-      digits.push(
-        <button
-          className="pad-item"
-          onClick={() => updateCalc(i.toString())}
-          key={i}
-        >
-          {i}
-        </button>
-      );
-    }
-    return digits;
-  };
 
   return (
     <div className="pad">
-      <div className="pad-item display">
+      <div className="display">
         <span id="output">{result ? '('+ result +')': ''}</span> 
-        <span id="input">{calc || "0"}</span>
+        <span id="input">{calc || '|'}</span>
       </div>
-      <div className="misc">
+      {/* <div className="misc">
         <button className="pad-item" onClick={() => updateCalc("^(2)")}>
           <div>
             x
@@ -94,7 +97,7 @@ const App = () => {
           </div>
         </button>
         <button className="pad-item"> &pi; </button>
-      </div>
+      </div> */}
       <div className="ctrl">
         <button className="pad-item" id="clear" onClick={() => clear()}>
           C

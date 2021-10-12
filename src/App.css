@@ -32,7 +32,7 @@ body {
   grid-template-rows: minmax(50px, auto);
   grid-template-areas:
     "a a a a"
-    "b b b b"
+    "a a a a"
     "c c c c"
     "d d d e"
     "d d d e"
@@ -60,6 +60,16 @@ body {
   filter: brightness(85%);
 }
 .display {
+  width: 100%;
+  height: 100%;
+  font-weight: 600;
+  font-size: 3rem;
+  color: var(--text);
+  border-radius: 10px;
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  padding: 30px;
   grid-area: a;
   background: var(--bg);
   display: flex;
@@ -74,11 +84,11 @@ body {
   color: var(--main);
   font-weight: 300;
 }
-.misc {
+/* .misc {
   grid-area: b;
   display: flex;
   gap: 7px;
-}
+} */
 .misc .pad-item {
   color: grey;
 }
