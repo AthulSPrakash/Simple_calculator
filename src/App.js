@@ -68,8 +68,8 @@ const App = () => {
   return (
     <div className="pad">
       <div className="display">
-        <div id="input">{calc || '|'}</div>
         <div id="output">{result ? result : '|'}</div>
+        <div id="input">{calc || '|'}</div>
       </div>
       {/* <div className="misc">
         <button className="pad-item" onClick={() => updateCalc("^(2)")}>

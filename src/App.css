@@ -75,7 +75,7 @@ body {
   justify-content: space-evenly;
 }
 #input{
-  text-align: start;
+  text-align: end;
   overflow-x: auto;
 }
 #input::-webkit-scrollbar {
@@ -84,7 +84,7 @@ body {
 #output{
   font-size: 1.2rem;
   color: var(--text-r);
-  text-align: end;
+  text-align: start;
   overflow-x: auto;
 }
 #output::-webkit-scrollbar {
