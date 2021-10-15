@@ -69,7 +69,7 @@ const App = () => {
     <div className="pad">
       <div className="display">
         <div id="output">{result ? result : '|'}</div>
-        <div id="input">{calc || '|'}</div>
+        <div id="input">{calc || <span className="blinking-cursor">|</span>}</div>
       </div>
       {/* <div className="misc">
         <button className="pad-item" onClick={() => updateCalc("^(2)")}>
